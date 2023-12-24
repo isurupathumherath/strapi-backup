@@ -1,0 +1,20 @@
+npm run strapi import -- -f strapi-backup/z-backup-content.tar
+npm run strapi import -- -f strapi-bk-config-ne.tar.gz
+
+npm run strapi export -- --file z-backup-content --only content --no-encrypt --no-compress
+npm run strapi export -- --file backup-config  --only config  --no-encrypt
+
+
+tar -xzvf strapi-bk-content-ne.tar.gz -C backup-me
+tar -czvf backup-me.tar.gz backup-me/
+
+tar -xvf z-backup-content.tar -C z-backup-content-1
+tar -cvf z-backup-content-1.tar z-backup-content-1
+
+npm run strapi transfer -- --to https://olanka-strapi.z5fqh2.easypanel.host/admin ‑‑to‑token 76b3868532c62dd301747885f4ed1fafb1820767709e36390dabeca5aca7c6590bddd27cf8e6431b8e40755d445bfd664e15a70d0995ed8613fdfedcf7410b3bb3c16bf00690221d724bd0807dc1dc5fb9b58d79e9285ec020aefce8f56119b29ccbcb0048ace07026fca120652203e7b68bb0b1304492dddbcb6034c55b2a92 --only content
+npm run strapi transfer -- --to https://olanka-strapi.z5fqh2.easypanel.host/admin ‑‑to‑token 76b3868532c62dd301747885f4ed1fafb1820767709e36390dabeca5aca7c6590bddd27cf8e6431b8e40755d445bfd664e15a70d0995ed8613fdfedcf7410b3bb3c16bf00690221d724bd0807dc1dc5fb9b58d79e9285ec020aefce8f56119b29ccbcb0048ace07026fca120652203e7b68bb0b1304492dddbcb6034c55b2a92 --only content
+npm run strapi transfer -- --to https://olanka-strapi.z5fqh2.easypanel.host/admin ‑‑to‑token  --only content
+npm run strapi transfer -- --to https://olanka-strapi.z5fqh2.easypanel.host/admin --only content
+
+tar -xvf z-backup-content.tar -C z-backup-content-z
+tar -cvf z-backup-content-z.tar z-backup-content-z/
